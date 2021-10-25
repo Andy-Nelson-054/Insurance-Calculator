@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace InsuranceCalculator.BLL
+namespace InsuranceCalculator.API
 {
     public class BusinessInfo : IBusinessInfo
     {

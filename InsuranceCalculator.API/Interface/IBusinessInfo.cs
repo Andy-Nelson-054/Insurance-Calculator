@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace InsuranceCalculator.BLL
+namespace InsuranceCalculator.API
 {
     public interface IBusinessInfo
     {
