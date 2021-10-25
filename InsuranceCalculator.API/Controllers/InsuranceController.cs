@@ -16,10 +16,12 @@ namespace InsuranceCalculator.API.Controllers
     public class InsuranceController : ControllerBase
     {
         private readonly IPremiumCalculator _premiumCalculator;
+        private readonly IBusinessInfo _businessInfo;
         
-        public InsuranceController(IPremiumCalculator premiumCalculator)
+        public InsuranceController(IPremiumCalculator premiumCalculator, IBusinessInfo businessInfo)
         {
             _premiumCalculator = premiumCalculator;
+            _businessInfo = businessInfo;
         }
 
         [HttpGet]
@@ -31,11 +33,11 @@ namespace InsuranceCalculator.API.Controllers
         [HttpPost]
         public IActionResult Post(JObject payload)
         {
-            //move this stuff to a business logic class
-            string businessJson = payload.ToString(Newtonsoft.Json.Formatting.None);
-            BusinessInfo businessInfo = JsonConvert.DeserializeObject<BusinessInfo>(businessJson);
-
-            decimal premium =  _premiumCalculator.Calculate(businessInfo.Revenue, businessInfo.State, businessInfo.Business);
+            //string businessJson = payload.ToString(Newtonsoft.Json.Formatting.None);
+            //BusinessInfo businessInfo = JsonConvert.DeserializeObject<BusinessInfo>(businessJson);
+            BusinessInfo businessInfo = new BusinessInfo();
+            businessInfo.DeserializePayload(payload);
+            decimal premium =  _premiumCalculator.Calculate(businessInfo);
 
             //Would want to validate payload in production for security
             return Ok(premium);

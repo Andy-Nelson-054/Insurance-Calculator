@@ -10,8 +10,12 @@ namespace InsuranceCalculator.API
     public class PremiumCalculator : IPremiumCalculator
     {
 
-        public decimal Calculate(decimal revenue, string state, string business)
+        public decimal Calculate(BusinessInfo businessInfo)
         {
+            decimal revenue = businessInfo.Revenue;
+            string state = businessInfo.State;
+            string business = businessInfo.Business;
+            
             decimal OHFactor = 1;
             decimal FLFactor = 1.2M;
             decimal TXFactor = 0.943M;
