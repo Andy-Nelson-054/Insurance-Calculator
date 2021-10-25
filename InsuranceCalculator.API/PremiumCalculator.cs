@@ -25,7 +25,7 @@ namespace InsuranceCalculator.API
             decimal stateFactor;
             decimal businessFactor;
             
-            decimal premium = 0;
+            decimal premium = 0M;
 
             decimal basePremium = Math.Ceiling(revenue / 1000);
 
@@ -63,7 +63,7 @@ namespace InsuranceCalculator.API
                 throw new ArgumentException($"Insurance not available for {business}");
             }
 
-            premium = stateFactor * businessFactor * hazardFactor * basePremium;
+            premium = decimal.Round( stateFactor * businessFactor * hazardFactor * basePremium, 2 );
 
             return premium;
         }
