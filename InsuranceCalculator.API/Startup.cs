@@ -27,7 +27,6 @@ namespace InsuranceCalculator.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson();
-
             services.AddScoped<IPremiumCalculator, PremiumCalculator>();
         }
 

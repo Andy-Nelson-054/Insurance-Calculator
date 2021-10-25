@@ -37,9 +37,6 @@ namespace InsuranceCalculator.API.Controllers
 
             decimal premium =  _premiumCalculator.Calculate(businessInfo.Revenue, businessInfo.State, businessInfo.Business);
 
-            //decimal premium = PremiumCalculator.Calculate(businessInfo.Revenue, businessInfo.State, businessInfo.Business);
-
-            //var business = Newtonsoft.Json.JsonConvert.DeserializeObject<Business>(payload);
             //Would want to validate payload in production for security
             return Ok(premium);
         }
