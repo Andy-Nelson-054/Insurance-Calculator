@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InsuranceCalculator.API.Interface;
 
 namespace InsuranceCalculator.API.Controllers
 {
@@ -14,6 +15,13 @@ namespace InsuranceCalculator.API.Controllers
     [ApiController]
     public class InsuranceController : ControllerBase
     {
+        private readonly IPremiumCalculator _premiumCalculator;
+        
+        public InsuranceController(IPremiumCalculator premiumCalculator)
+        {
+            _premiumCalculator = premiumCalculator;
+        }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -26,7 +34,10 @@ namespace InsuranceCalculator.API.Controllers
             //move this stuff to a business logic class
             string businessJson = payload.ToString(Newtonsoft.Json.Formatting.None);
             BusinessInfo businessInfo = JsonConvert.DeserializeObject<BusinessInfo>(businessJson);
-            decimal premium = PremiumCalculator.Calculate(businessInfo.Revenue, businessInfo.State, businessInfo.Business);
+
+            decimal premium =  _premiumCalculator.Calculate(businessInfo.Revenue, businessInfo.State, businessInfo.Business);
+
+            //decimal premium = PremiumCalculator.Calculate(businessInfo.Revenue, businessInfo.State, businessInfo.Business);
 
             //var business = Newtonsoft.Json.JsonConvert.DeserializeObject<Business>(payload);
             //Would want to validate payload in production for security

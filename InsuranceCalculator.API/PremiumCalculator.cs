@@ -1,4 +1,5 @@
-﻿using InsuranceCalculator.BLL;
+﻿using InsuranceCalculator.API.Interface;
+using InsuranceCalculator.BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace InsuranceCalculator.API
 {
-    public class PremiumCalculator
+    public class PremiumCalculator : IPremiumCalculator
     {
-        public static decimal Calculate(decimal revenue, string state, string business)
+
+        public decimal Calculate(decimal revenue, string state, string business)
         {
             decimal OHFactor = 1;
             decimal FLFactor = 1.2M;

@@ -9,10 +9,5 @@ namespace InsuranceCalculator.BLL
         public decimal Revenue { get; set; }
         public string State { get; set; }
         public string Business { get; set; }
-
-        //public decimal CalculatePremium()
-        //{
-
-        //}
     }
 }

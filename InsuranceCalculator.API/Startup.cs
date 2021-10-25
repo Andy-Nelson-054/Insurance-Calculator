@@ -1,3 +1,4 @@
+using InsuranceCalculator.API.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,8 @@ namespace InsuranceCalculator.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson();
+
+            services.AddScoped<IPremiumCalculator, PremiumCalculator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
