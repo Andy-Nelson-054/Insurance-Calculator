@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceCalculator.API", "InsuranceCalculator.API\InsuranceCalculator.API.csproj", "{B76A8362-826B-4A40-A840-684F08686E58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B76A8362-826B-4A40-A840-684F08686E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76A8362-826B-4A40-A840-684F08686E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B76A8362-826B-4A40-A840-684F08686E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B76A8362-826B-4A40-A840-684F08686E58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BDBA50D-9580-4062-BCA4-A1683CF455B7}
+	EndGlobalSection
+EndGlobal
