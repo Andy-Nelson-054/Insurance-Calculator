@@ -1,13 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using InsuranceCalculator.API.Interface;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using InsuranceCalculator.BLL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using InsuranceCalculator.API.Interface;
 
 namespace InsuranceCalculator.API.Controllers
 {
@@ -33,8 +26,6 @@ namespace InsuranceCalculator.API.Controllers
         [HttpPost]
         public IActionResult Post(JObject payload)
         {
-            //string businessJson = payload.ToString(Newtonsoft.Json.Formatting.None);
-            //BusinessInfo businessInfo = JsonConvert.DeserializeObject<BusinessInfo>(businessJson);
             BusinessInfo businessInfo = new BusinessInfo();
             businessInfo.DeserializePayload(payload);
             decimal premium =  _premiumCalculator.Calculate(businessInfo);
