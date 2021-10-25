@@ -13,12 +13,12 @@ namespace InsuranceCalculator.API
 
         public void DeserializePayload(JObject payload)
         {
-            string businessJson = payload.ToString(Newtonsoft.Json.Formatting.None);
-            var payloadString = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessInfo>(businessJson);
+            string payloadString = payload.ToString(Newtonsoft.Json.Formatting.None);
+            var businessJson = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessInfo>(payloadString);
 
-            Revenue = payloadString.Revenue;
-            State = payloadString.State;
-            Business = payloadString.Business;
+            Revenue = businessJson.Revenue;
+            State = businessJson.State;
+            Business = businessJson.Business;
         }
     }
 }
