@@ -6,7 +6,7 @@ namespace InsuranceCalculator.API
     public class PremiumCalculator : IPremiumCalculator
     {
 
-        public decimal Calculate(BusinessInfo businessInfo)
+        public decimal Calculate(IBusinessInfo businessInfo)
         {
             decimal revenue = businessInfo.Revenue;
             string state = businessInfo.State;

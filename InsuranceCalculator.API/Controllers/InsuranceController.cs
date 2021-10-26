@@ -26,9 +26,8 @@ namespace InsuranceCalculator.API.Controllers
         [HttpPost]
         public IActionResult Post(JObject payload)
         {
-            BusinessInfo businessInfo = new BusinessInfo();
-            businessInfo.DeserializePayload(payload);
-            decimal premium =  _premiumCalculator.Calculate(businessInfo);
+            _businessInfo.DeserializePayload(payload);
+            decimal premium =  _premiumCalculator.Calculate(_businessInfo);
 
             //Would want to validate payload in production for security
             return Ok(premium);
